@@ -9,6 +9,7 @@ function logMethod(
         const result = method.apply(this, args);
         const r = JSON.stringify(result);
         console.log(`Call ${propertyName} (${params}) -> ${r}`);
+        console.log("target", target.constructor);
         return result + "!!!";
     }
     return propertyDescriptor;

@@ -16,6 +16,7 @@ function logMethod(target, propertyName, propertyDescriptor) {
         var result = method.apply(this, args);
         var r = JSON.stringify(result);
         console.log("Call " + propertyName + " (" + params + ") -> " + r);
+        console.log("target", target.constructor);
         return result + "!!!";
     };
     return propertyDescriptor;

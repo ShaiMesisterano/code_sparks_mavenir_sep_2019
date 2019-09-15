@@ -9,11 +9,13 @@ const port = 5000;
 
 const app: express.Application = express();
 
+const getIndexById: any = (arr: Array<{id: string}>, id: string) => arr.findIndex( (item: { id: string }) => item.id === id );
+
 app.use(bodyParser.json());
 
-app.get('/api/parties', (request: express.Request, response: express.Response) => response.json(parties));
+app.get('/api/parties', (request: express.Request, response: express.Response): express.Response => response.json(parties));
 
-app.post('/api/parties', (request: express.Request, response: express.Response) => {
+app.post('/api/parties', (request: express.Request, response: express.Response): void => {
     const newPartId: string = uuid();
     let newPartyName: string | null = null;
     try {
@@ -39,6 +41,28 @@ app.post('/api/parties', (request: express.Request, response: express.Response) 
             message: "Please provide party name"
         })
     }
+});
+
+app.put('/api/parties', (request: express.Request, response: express.Response): void => {
+    const partyId: string = request.query.id;
+
+    const partyIndex: number = getIndexById(parties, partyId);
+    parties[partyIndex].name = request.body.name;
+
+    response.json({
+        message: "Party was updated"
+    })
+});
+
+app.delete('/api/parties', (request: express.Request, response: express.Response): void => {
+    const partyId: string = request.query.id;
+    const partyIndex: number = getIndexById(parties, partyId);
+
+    parties.splice(partyIndex, 1);
+
+    response.json({
+        message: "Party was deleted"
+    })
 });
 
 app.listen(5000, () => console.log("Server is running"));

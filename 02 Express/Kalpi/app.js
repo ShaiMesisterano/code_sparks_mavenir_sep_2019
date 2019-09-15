@@ -1,0 +1,48 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = __importDefault(require("express"));
+var uuid_1 = __importDefault(require("uuid"));
+var parties_1 = require("./data/parties");
+// const express = require('express');
+// const greeter = require('./modules/greeter');
+var port = 5000;
+var app = express_1.default();
+// app.use(bodyParser.json());
+app.get('/api/parties', function (request, response) { return response.json(parties_1.parties); });
+app.post('/api/parties', function (request, response) {
+    var newPartId = uuid_1.default();
+    var newPartyName = null;
+    try {
+        // if (request && request.body && request.body.name){
+        newPartyName = request.body.name;
+        // }
+    }
+    catch (ex) {
+        throw new Error(ex);
+    }
+    if (newPartyName) {
+        parties_1.parties.push({
+            id: newPartId,
+            name: newPartyName
+        });
+        response.json({
+            message: "New party was added"
+        });
+    }
+    else {
+        response.json({
+            message: "Please provide party name"
+        });
+    }
+});
+app.use(function (err, req, res, next) {
+    if (res.headersSent) {
+        return next(err);
+    }
+    res.status(500);
+    res.json({ error: JSON.stringify(err) });
+});
+app.listen(5000, function () { return console.log("Server is running"); });

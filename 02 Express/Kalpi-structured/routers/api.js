@@ -7,4 +7,5 @@ var express_1 = __importDefault(require("express"));
 var parties_1 = __importDefault(require("../controllers/parties"));
 var apiRouter = express_1.default.Router();
 apiRouter.use('/parties', parties_1.default);
+// apiRouter.use('/prime-ministers', primeMinistersController);
 exports.default = apiRouter;

@@ -1,0 +1,19 @@
+{
+  "name": "npm-link-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^8.3.5",
+    "axios": "^0.19.0",
+    "jsdom": "^15.1.1",
+    "lodash": "^4.17.15",
+    "total.js": "^3.2.4"
+  }
+}

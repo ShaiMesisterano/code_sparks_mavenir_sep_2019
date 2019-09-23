@@ -1,0 +1,52 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Israeli Parties
+  license:
+    name: MIT
+host: localhost:5000
+basePath: /api
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /parties:
+    get:
+      summary: List all parties
+      operationId: listParties
+      tags:
+        - parties
+      responses:
+        "200":
+          description: An array of parties
+          schema:
+            $ref: '#/definitions/Parties'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Party:
+    type: "object"
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+  Parties:
+    type: array
+    items:
+      $ref: '#/definitions/Party'
+  Error:
+    type: "object"
+    required:
+      - message
+    properties:
+      message:
+        type: string

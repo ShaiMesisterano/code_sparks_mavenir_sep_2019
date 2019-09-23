@@ -1,0 +1,31 @@
+{
+  "name": "mail",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "ShaiMesisterano <shai@mcterano.com>",
+  "homepage": "https://github.com/ShaiMesisterano/code_sparks_mavenir_sep_2019#readme",
+  "license": "ISC",
+  "main": "lib/mail.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaiMesisterano/code_sparks_mavenir_sep_2019.git"
+  },
+  "scripts": {
+    "fixfox": "echo 'fix fox'",
+    "build": "echo 'building mail'",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/ShaiMesisterano/code_sparks_mavenir_sep_2019/issues"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

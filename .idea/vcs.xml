@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04 NPM/jsdom" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04 NPM/lodash" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04 NPM/shoe-size-converter" vcs="Git" />
   </component>
 </project>

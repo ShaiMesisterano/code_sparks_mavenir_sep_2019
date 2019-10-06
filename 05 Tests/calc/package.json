@@ -1,0 +1,16 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/*.js"]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

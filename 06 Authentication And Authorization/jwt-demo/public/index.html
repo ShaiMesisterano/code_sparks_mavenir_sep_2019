@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JWT Demo</title>
+</head>
+<body>
+    <a href="/home">Home</a>
+    <p>
+    <input type="email" id="email" placeholder="Enter email address" />
+    </p>
+    <p>
+    <input type="password" id="password" placeholder="Enter password" />
+    </p>
+    <p>
+    <button type="button" id="login" onclick="login()">Login</button>
+    </p>
+    <p>
+    <div id="status"></div>
+    </p>
+
+    <script>
+        async function login() {
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email, password})
+            });
+            const data = await response.text();
+            if (response.ok) {
+                document.cookie = `token=${data}`;
+            }
+            document.querySelector('#status').innerText = data;
+        }
+    </script>
+</body>
+</html>

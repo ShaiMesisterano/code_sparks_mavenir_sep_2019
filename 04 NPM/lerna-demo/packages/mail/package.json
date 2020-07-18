@@ -26,6 +26,6 @@
     "url": "https://github.com/ShaiMesisterano/code_sparks_mavenir_sep_2019/issues"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   }
 }
